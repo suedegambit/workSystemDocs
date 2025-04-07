@@ -26,30 +26,30 @@
 
 ## Turns 41-50
 - [x] Create `gst-all` script
-- [ ] Add documentation of `gst-all` to `WorkspaceOps.md`
+- [x] Add documentation of `gst-all` to `WorkspaceOps.md`
 - [x] Scaffold AI talk project entry
 
 ## Turns 51-60
 - [x] Write `SystemDocs/Principles.md`
 - [x] Update `gst-all.sh` with logging
-- [ ] Add `.zshrc` alias for `gst-all`
+- [x] Add `.zshrc` alias for `gst-all`
 
 ## Turns 61-70
-- [ ] Add `gst-all` log convention to `WorkspaceOps.md`
+- [x] Add `gst-all` log convention to `WorkspaceOps.md`
 - [x] Create logging script scaffold
 
 ## Turns 71-80
 - [x] Add visual placeholder to `SystemDocs/structure.md`
 - [x] Create file for system principles
-- [ ] Append `gst-all` logging alias
-- [ ] Create `Summaries/turns-071-080.md`
+- [x] Append `gst-all` logging alias
+- [x] Create `Summaries/turns-071-080.md`
 
 ## Turns 81-90
 - [x] Create Inbox capture directory
 - [x] Create `OutBrain/Inbox/README.md`
 - [x] Create inbox capture stub
 - [x] Create section in `workflow.md`
-- [ ] Create `Summaries/turns-081-090.md`
+- [x] Create `Summaries/turns-081-090.md`
 
 ## Turns 91-100
 - [x] Create `README.md` for `workGTD`
@@ -57,4 +57,4 @@
 - [x] Create `README.md` for `workOutBrain`
 - [x] Create `README.md` for `workSystemDocs`
 - [x] Create `.workspace.yml`
-- [ ] Create `Summaries/turns-091-100.md` 
+- [x] Create `Summaries/turns-091-100.md` 
