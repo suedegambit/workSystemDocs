@@ -2,13 +2,12 @@
 
 ## Safety Rules
 
-### 1. File Existence Check
-*Always check if a file exists before creating or modifying it. Never overwrite existing files without explicit confirmation.*
+### 1. File Overwrite Protection
+*Avoid accidentally overwriting tracked or important files, especially in Git-managed repos. Always check existence first.*
 
 ```sh
-# Example safe file creation pattern
 if [ ! -f "$TARGET_FILE" ]; then
-    # Create new file
+    # safe to create
 else
     echo "⚠️ File already exists: $TARGET_FILE"
     exit 1
@@ -30,21 +29,9 @@ fi
 - Error handling
 - Rate limiting details*
 
-## Implementation Guidelines
+### 4. Lightweight Workspace Diagnostics
+*Use the `ws-head` command to quickly inspect file contents across the workspace when higher-level tools are unavailable.*
 
-### 1. File Creation Pattern
-1. Check if file exists
-2. If exists, log warning and exit
-3. If not exists, create with proper permissions
-4. Log creation event
-
-### 2. File Modification Pattern
-1. Check if file exists 
-2. Apply changes
-3. Log modification event
-
-### 3. Directory Creation Pattern
-1. Check if directory exists
-2. If exists, verify it's empty
-3. If not exists, create with proper permissions
-4. Log creation event 
+```sh
+alias ws-head='find ~/workspace -type f \( -name "*.md" -o -name "*.yml" -o -name "*.sh" \) | while read file; do echo "===== $file ====="; head -n 10 "$file"; echo; done'
+```
