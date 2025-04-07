@@ -172,3 +172,5 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+Research/agentstack/.DS_Store
+Research/Cursor/.DS_Store
