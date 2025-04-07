@@ -58,3 +58,48 @@
 - [x] Create `README.md` for `workSystemDocs`
 - [x] Create `.workspace.yml`
 - [x] Create `Summaries/turns-091-100.md` 
+
+## Optional Enhancements Backlog
+*Added: 2025-04-07 14:30*
+
+### Tooling
+1. **`ws-tail` alias**  
+   - Purpose: View last 10 lines of matching files in workspace (complement to `ws-head`)
+   - Tags: `#Tooling`, `#logging`, `#observability`
+   - Rationale: Enhances log inspection and automation monitoring
+
+2. **`ws-grep <pattern>` utility**  
+   - Purpose: Search `*.md`, `*.sh`, `*.yml` across workspace
+   - Tags: `#Tooling`, `#search`
+   - Rationale: Enables frictionless pattern recall in logs and notes
+
+3. **`Tooling/bootstrap.sh` script**  
+   - Purpose: New-machine bootstrapper with dry-run mode
+   - Tags: `#Tooling`, `#bootstrap`, `#devops`
+   - Rationale: Streamlines workspace setup across devices
+
+### SystemDocs
+4. **`SystemDocs/glossary.md`**  
+   - Purpose: Canonical definitions for system terms
+   - Tags: `#SystemDocs`, `#semantics`, `#agent-ready`
+   - Rationale: Ensures shared semantic understanding between humans and agents
+
+5. **`.meta.yml` per repo**  
+   - Purpose: Declares high-level metadata for agent scanning
+   - Tags: `#agent-ready`, `#SystemDocs`, `#metadata`
+   - Rationale: Enables better agent understanding of repository context
+
+6. **`SystemDocs/questions.md`**  
+   - Purpose: Aggregate "Questions Needing Answering" across summaries
+   - Tags: `#SystemDocs`, `#open-questions`
+   - Rationale: Creates a live, revisitable list of open questions for agent processing
+
+- ## To Be Documented
+
+- [ ] Agent commit policy and context boundaries  
+- [ ] Prompt engineering reuse strategies  
+- [ ] Sync strategy for non-Git data (logs, checkpoints, GPT outputs)  
+- [ ] OutBrain → GTD reference flow (how ideas become actions)  
+- [ ] OutBrain citation/metadata standards (e.g., quote origins)  
+- [ ] Backup and restore process across devices  
+- [ ] Encryption/credential workflow (with 1Password CLI)  
