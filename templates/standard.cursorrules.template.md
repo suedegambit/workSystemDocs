@@ -22,6 +22,7 @@ Adhere to the core workspace principles defined in `~/workspace/SystemDocs/Princ
 *   **Logging:** Scripts should adhere to the standard workspace logging convention defined in `~/workspace/SystemDocs/WorkspaceOps.md`, directing logs to `~/workspace/logs/[PROJECT_NAME]/`.
 *   **Documentation:** Follow project-specific documentation standards defined within its `README.md` or internal `docs/` directory, and align with overall standards in `SystemDocs`.
 *   **File Overwrite Protection:** Always check if files exist before creating/modifying, as per `SystemDocs/system-rules.md`.
+*   **Inter-Project Communication:** This project participates in the workspace cross-project communication framework. See `~/workspace/SystemDocs/interop/README.md` for protocols and message formats.
 
 ## Workflow / Conventions
 
