@@ -2612,11 +2612,253 @@ Let's start with adding the implementation to the done list:
 
 ---
 
-Cancelled
+```diff
+  - [x] #prio/medium #type/docs Document standard Git commit workflow in `WorkspaceOps.md` (Done: YYYY-MM-DD).
+  - [x] #prio/low #type/template Created standard `.cursorrules` template (`templates/standard.cursorrules.template.md`) incorporating commit workflow, logging, and mirroring rules (Done: YYYY-MM-DD).
++ - [x] #prio/medium #type/implement Created `cursorrules.md` in SystemDocs root mirroring `.cursor/rules/systemdocs-project-rules.mdc` with added standard conventions (Done: YYYY-MM-DD). 
+```
 
 ---
 
+Now, let's update the alignment prompt to emphasize checking for `cursorrules.md`:
 
+
+
+---
+
+```diff
+      *   `README.md`: Existence, adherence to standard structure, presence of "Workspace Context" section.
+      *   `projectTasks/` directory: Existence and standard file contents (`README.md`, `backlog.md`, etc.).
+-     *   `cursorrules.md` / `.cursorrules`: Existence. Does it include rules aligned with the standard commit workflow and logging convention (referencing `WorkspaceOps.md`)?
++     *   **`cursorrules.md` / `.cursorrules`:** **(Critical)** 
++         - Existence: Does the repository have a `cursorrules.md` file mirroring the `.cursor/rules/` settings?
++         - Standard sections: Do they include the standard commit workflow and logging convention rules?
++         - Mirroring statement: Is there a note that `cursorrules.md` mirrors the actual rules for AI review?
+      *   Directory Structure: Alignment with its `README.md` and workspace standards.
+      *   Logging: Adherence to standard logging convention documented in `WorkspaceOps.md`.
+```
+
+---
+
+Now, let's create a specific prompt for MCP that acknowledges it's ahead of the curve:
+
+
+
+---
+
+```diff
+- 
++ # MCP Alignment Prompt
++ 
++ **Goal:** Verify MCP's alignment with updated workspace standards, and use its advanced patterns to refine those standards.
++ 
++ **Context:**
++ The MCP repository already implements many of the patterns now standardized in `SystemDocs`. It serves as a reference implementation for practices like vendor management and logging conventions. The goal is to:
++ 1. Ensure full alignment with all current standards
++ 2. Extract any additional patterns from MCP that could be worth standardizing across the workspace
++ 
++ **Instructions for AI Assistant:**
++ 
++ 1.  **Review MCP Implementation:** Examine the MCP repository's:
++     *   Advanced vendor management system (`manifest.yml`, `sync-vendors.sh`) for any features not yet captured in the standard
++     *   Logging convention implementation for any additional best practices
++     *   `cursorrules.md` and `.cursorrules` for any workflow guidelines that could benefit other projects
++     *   Scripts and documentation for any other patterns that represent improvements on the standards
++ 
++ 2.  **Compare with SystemDocs Standards:** Reference the following key documents in the parent workspace:
++     *   `WorkspaceOps.md` (Particularly vendor management and logging conventions)
++     *   `structure.md` (Workspace layout, standard README structure)
++     *   `templates/standard.cursorrules.template.md` (Standard cursor rules)
++     *   `projectTasks/README.md` (Task tracking system)
++ 
++ 3.  **Validate Current Alignment:**
++     *   Verify the MCP repository has all standard components (Workspace Context in README, `projectTasks/`, `cursorrules.md`, etc.)
++     *   Confirm all documentation explicitly references the broader workspace system
++     *   Ensure all scripts follow the standard logging convention
++ 
++ 4.  **Identify Potential Standards from MCP:**
++     *   Are there patterns in MCP not yet formalized as workspace standards?
++     *   Could any MCP-specific approaches be generalized for other projects?
++     *   Does MCP have any tooling that could be moved to the `Tooling` repository for broader use?
++ 
++ **Output Format:**
++ Return a response containing:
++ 1.  A confirmation of MCP's alignment status
++ 2.  Any recommendations for additional alignment steps
++ 3.  Patterns from MCP that should be considered for standardization across the workspace 
+```
+
+---
+
+**Tasks Completed:**
+
+1. **Added Implementation to Done List:** I've added a task entry for implementing `cursorrules.md` in SystemDocs to the `done.md` file.
+
+2. **Updated Alignment Prompt:** I've enhanced the main alignment prompt (`subproject_alignment_prompt.md`) to emphasize checking for:
+   - Existence of `cursorrules.md` mirroring the actual rules 
+   - Presence of standard sections like commit workflow
+   - Inclusion of a statement about the mirroring relationship
+
+3. **Created MCP-specific Prompt:** I've created a specialized prompt (`mcp_alignment_prompt.md`) that:
+   - Acknowledges MCP as a reference implementation
+   - Focuses on extracting additional best practices from MCP
+   - Aims to identify patterns in MCP that could be standardized workspace-wide
+   - Seeks opportunities to generalize MCP-specific approaches
+
+This MCP-specific prompt recognizes MCP's advanced state and treats it as a source of innovation rather than just a project to be aligned. It establishes a two-way relationship where MCP both follows workspace standards and helps define them.
+
+---
+
+_**User**_
+
+Please review 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+I'll review the current state and tasks.
+
+I notice you've added two specific tasks to `active.md` that I should address:
+
+1. **Add git commit rules to cursorrules.md**
+   * I already included basic commit rules in the `cursorrules.md` I created, but they could be expanded to match the more detailed guidance in `WorkspaceOps.md`
+
+2. **Add an instruction to the cursor rules template to check active and backlog.md files**
+   * This is an excellent addition that would encourage AI assistants to regularly check for pending tasks
+
+I'll implement both of these tasks now:
+
+1. First, let's enhance the git commit rules in `cursorrules.md`:
+
+
+
+---
+
+```diff
+  ## Workflow / Conventions
+  
+- *   **Git Commits:** After completing a logical unit of work, propose appropriate `git add` and `git commit -m 'type(scope): Descriptive message'` commands. Aim for small, focused commits. USER approval is required before execution.
++ *   **Git Commits:** After completing a logical unit of work:
++     - Commits should represent a single, logical unit of work (feature, bugfix, documentation)
++     - Aim for relatively small, focused commits rather than large, unrelated changes
++     - Propose appropriate `git add` and `git commit -m 'type(scope): Descriptive message'` commands
++     - Format commit messages following conventional commit standards
++     - Explain the rationale for the commit (what logical unit was completed)
++     - USER approval is required before execution of any git commands
+  *   **`cursorrules.md` Mirror:** This file mirrors the `.cursor/rules/systemdocs-project-rules.mdc` content, with additional standard conventions appended.
++ *   **Regular Task Checking:** At natural pause points in the conversation, check the `projectTasks/active.md` and `projectTasks/backlog.md` files to be aware of current priorities and ongoing tasks. 
+```
+
+---
+
+2. Now, let's update the standard cursor rules template to include the task checking instruction:
+
+
+
+---
+
+```diff
+  *   **Git Commits:** After completing a logical unit of work (e.g., adding a feature, fixing a bug, completing documentation), propose appropriate `git add` and `git commit -m 'type(scope): Descriptive message'` commands. Aim for small, focused commits. Explain the rationale. USER approval is required before execution.
+  *   **`cursorrules.md` Mirror:** If using `.cursorrules`, maintain the `cursorrules.md` mirror file for AI interaction.
++ *   **Regular Task Checking:** At natural pause points in the conversation, check the `projectTasks/active.md` and `projectTasks/backlog.md` files to be aware of current priorities and ongoing tasks.
+  
+  ## Project-Specific Rules (Add as needed)
+```
+
+---
+
+3. Now, let's properly format those tasks in the active.md file:
+
+
+
+---
+
+```diff
+  
+  - [x] #prio/high #type/docs Document identified adoptable practices (Vendor Management, Logging Convention, toolingLog.md usage, Workspace Context section, internal docs/, project principles) as workspace standards in `SystemDocs`.
+- - [ ] #prio/high #type/docs Standardize the `README.md` format for sub-projects to include the 'Workspace Context' section (document standard in `SystemDocs`). 
+- - [ ] Please add the git commit rules to cursorrules.md
+- - [ ] To the project cursor rules template please add an instruction to check active and backlog md whenever an AI comes to a natural pause. 
++ - [x] #prio/high #type/docs Standardize the `README.md` format for sub-projects to include the 'Workspace Context' section (document standard in `SystemDocs`).
++ - [x] #prio/medium #type/enhance Add detailed git commit rules to `cursorrules.md` for SystemDocs.
++ - [x] #prio/medium #type/enhance Add "Regular Task Checking" instruction to the cursor rules template. 
+```
+
+---
+
+4. Let's also add these tasks to the done.md file to maintain a complete record:
+
+
+
+---
+
+```diff
+  - [x] #prio/low #type/template Created standard `.cursorrules` template (`templates/standard.cursorrules.template.md`) incorporating commit workflow, logging, and mirroring rules (Done: YYYY-MM-DD).
+  - [x] #prio/medium #type/implement Created `cursorrules.md` in SystemDocs root mirroring `.cursor/rules/systemdocs-project-rules.mdc` with added standard conventions (Done: YYYY-MM-DD).
++ - [x] #prio/medium #type/enhance Added detailed git commit rules to `cursorrules.md` for SystemDocs (Done: YYYY-MM-DD).
++ - [x] #prio/medium #type/enhance Added "Regular Task Checking" instruction to the cursor rules template (Done: YYYY-MM-DD). 
+```
+
+---
+
+**Task Review:**
+
+✅ I've implemented both tasks as requested:
+
+1. **Enhanced Git Commit Rules in `cursorrules.md`**:
+   - Added detailed guidelines from `WorkspaceOps.md`
+   - Structured as a clear list of practices
+   - Maintained emphasis on user approval for commands
+
+2. **Added "Regular Task Checking" Instruction**:
+   - Added to both `cursorrules.md` for SystemDocs
+   - Added to the standard template in `templates/standard.cursorrules.template.md`
+   - Specifically directs AIs to check `active.md` and `backlog.md` at natural pause points
+
+3. **Properly Formatted Tasks**:
+   - Converted the informal task requests to proper formatted tasks with priorities and types
+   - Marked them as completed in `active.md`
+   - Added them to `done.md` for record-keeping
+
+The `active.md` file now shows all tasks as completed. Would you like me to bring in any additional tasks from the backlog to work on next?
+
+---
+
+_**User**_
+
+yes please if there's anything in the backlog that you can proceed with without any input from me , please bring it in to active and iterate. Otherwise I'll see you later. 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+After reviewing the backlog, I don't see any tasks that I can confidently proceed with independently:
+
+1. "Flesh out planned sections in `structure.md`" - You noted this requires experience before locking in designs
+2. "Implement suggestions from `commit-automation.md`" - Requires shell script implementation decisions
+3. "Add the visual architecture diagram" - Requires visual design work
+4. "Ensure `ws-head` alias" - Requires manual shell profile modification
+5. "Consider and design agentic task criteria" - Requires design decisions about autonomy
+
+The current active file is now empty (all tasks completed), and the remaining backlog items need your input or are appropriately deferred until we have more experience with the system.
+
+All the standardization work we identified earlier has been completed and documented. The workspace now has:
+- Standard task tracking across all sub-projects
+- Clear documentation on logging standards and vendor management
+- A standard README format with Workspace Context sections
+- Cursor rules standardization with the cursorrules.md mirroring convention
+- Comprehensive alignment prompts for both standard projects and advanced ones like MCP
+
+I'll await your next instructions when you're ready to tackle the remaining backlog items or define new tasks.
 
 ---
 
