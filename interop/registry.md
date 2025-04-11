@@ -12,7 +12,7 @@ This file tracks all active and recent cross-project communications.
 
 | ID | Date | Source | Target | Type | Priority | Status | Link |
 |----|------|--------|--------|------|----------|--------|------|
-| *No completed communications* |  |  |  |  |  |  |  |
+| GTD-SYS-20250411-01 | 2025-04-11 | GTD | SystemDocs | query | medium | completed | [msg_2025-04-11.md](GTD/SystemDocs/msg_2025-04-11.md) / [response_2025-04-11.md](SystemDocs/GTD/response_2025-04-11.md) |
 
 ## Communication ID Convention
 
