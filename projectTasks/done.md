@@ -15,4 +15,6 @@
 - [x] #prio/low #type/prompt Create prompt template for sub-project alignment (`subproject_alignment_prompt.md`) (Done: YYYY-MM-DD).
 - [x] #prio/medium #type/docs Document standard Git commit workflow in `WorkspaceOps.md` (Done: YYYY-MM-DD).
 - [x] #prio/low #type/template Created standard `.cursorrules` template (`templates/standard.cursorrules.template.md`) incorporating commit workflow, logging, and mirroring rules (Done: YYYY-MM-DD).
-- [x] #prio/medium #type/implement Created `cursorrules.md` in SystemDocs root mirroring `.cursor/rules/systemdocs-project-rules.mdc` with added standard conventions (Done: YYYY-MM-DD). 
+- [x] #prio/medium #type/implement Created `cursorrules.md` in SystemDocs root mirroring `.cursor/rules/systemdocs-project-rules.mdc` with added standard conventions (Done: YYYY-MM-DD).
+- [x] #prio/medium #type/enhance Added detailed git commit rules to `cursorrules.md` for SystemDocs (Done: YYYY-MM-DD).
+- [x] #prio/medium #type/enhance Added "Regular Task Checking" instruction to the cursor rules template (Done: YYYY-MM-DD). 

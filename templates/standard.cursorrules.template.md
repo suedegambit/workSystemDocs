@@ -27,6 +27,7 @@ Adhere to the core workspace principles defined in `~/workspace/SystemDocs/Princ
 
 *   **Git Commits:** After completing a logical unit of work (e.g., adding a feature, fixing a bug, completing documentation), propose appropriate `git add` and `git commit -m 'type(scope): Descriptive message'` commands. Aim for small, focused commits. Explain the rationale. USER approval is required before execution.
 *   **`cursorrules.md` Mirror:** If using `.cursorrules`, maintain the `cursorrules.md` mirror file for AI interaction.
+*   **Regular Task Checking:** At natural pause points in the conversation, check the `projectTasks/active.md` and `projectTasks/backlog.md` files to be aware of current priorities and ongoing tasks.
 
 ## Project-Specific Rules (Add as needed)
 

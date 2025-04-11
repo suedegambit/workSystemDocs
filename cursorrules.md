@@ -35,5 +35,12 @@ This repo documents the design, development, and implementation of Evan's agenti
 
 ## Workflow / Conventions
 
-*   **Git Commits:** After completing a logical unit of work, propose appropriate `git add` and `git commit -m 'type(scope): Descriptive message'` commands. Aim for small, focused commits. USER approval is required before execution.
-*   **`cursorrules.md` Mirror:** This file mirrors the `.cursor/rules/systemdocs-project-rules.mdc` content, with additional standard conventions appended. 
+*   **Git Commits:** After completing a logical unit of work:
+    - Commits should represent a single, logical unit of work (feature, bugfix, documentation)
+    - Aim for relatively small, focused commits rather than large, unrelated changes
+    - Propose appropriate `git add` and `git commit -m 'type(scope): Descriptive message'` commands
+    - Format commit messages following conventional commit standards
+    - Explain the rationale for the commit (what logical unit was completed)
+    - USER approval is required before execution of any git commands
+*   **`cursorrules.md` Mirror:** This file mirrors the `.cursor/rules/systemdocs-project-rules.mdc` content, with additional standard conventions appended.
+*   **Regular Task Checking:** At natural pause points in the conversation, check the `projectTasks/active.md` and `projectTasks/backlog.md` files to be aware of current priorities and ongoing tasks. 
