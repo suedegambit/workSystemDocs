@@ -15,15 +15,19 @@ Its goals are to:
 ## Key Documents within this Repository
 
 *   **`README.md`**: (This file) Top-level overview.
-*   **`principles.md`**: Core design principles guiding system development and automation.
-*   **`structure.md`** or **`architecture.md`**: (To be created/fleshed out) Detailed explanation of the `~/workspace` layout, repo roles, and data flow. _(Consider adding a diagram)_
-*   **`workflow.md`**: (To be created/fleshed out) Describes key operational loops (e.g., GTD capture -> process -> act, Log ingestion -> summary -> insight).
-*   **`WorkspaceOps.md`**: (To be created/fleshed out) Details standard commands, scripts (`gst-all`), and maintenance procedures for the workspace.
-*   **`auth.md`** or **`setup.md`**: (To be created/fleshed out) Instructions for setting up SSH keys, Git configurations, and potentially bootstrapping the environment on a new machine.
+*   **`Principles.md`**: Core design principles guiding system development and automation.
+*   **`structure.md`**: Detailed explanation of the `~/workspace` layout, repo roles, data flow, and standard conventions (like README structure).
+*   **`workflow.md`**: Describes key operational loops (e.g., GTD capture -> process -> act, Log ingestion -> summary -> insight).
+*   **`WorkspaceOps.md`**: Details standard commands, scripts (`gst-all`), operational patterns (Vendor Mgmt, Logging, `toolingLog`), and maintenance procedures.
+*   **`setup.md`** (Planned Name): Instructions for setting up SSH keys, Git configurations, and bootstrapping the environment.
 *   **`Capture.md`**: Details on how to use the `GTD/inbox.md` and conventions for capturing thoughts/tasks.
+*   **`modules/creating_modules.md`** (Planned): Standards for creating reusable workspace modules.
 *   **`projectTasks/`**: Task backlog, active work, and completion log specifically for `SystemDocs` development.
-*   **`Research/`**: Deep dives and evaluations of tools, technologies, and approaches relevant to the system (e.g., Cursor, Agent Stacks).
-*   **`creationChatlogs/`**: Contains the structured summaries (`summary.*.md`) and automatable action lists (`automate.*.md`) generated during the system's design phase via ChatGPT. These serve as the initial bootstrapping instructions.
+*   **`Research/`**: Deep dives and evaluations of tools, technologies, and approaches relevant to the system.
+*   **`creationChatlogs/`**: Historical structured summaries and automatable action lists.
+*   **`commit-automation.md`**: Guidelines and suggestions for automating Git commits.
+*   **`system-rules.md`**: Core operational and safety rules for the workspace.
+*   **`auth.md`** or **`setup.md`**: (To be created/fleshed out) Instructions for setting up SSH keys, Git configurations, and potentially bootstrapping the environment on a new machine.
 *   **`.cursor/`**: Configuration rules specific to using the Cursor editor within this `SystemDocs` project itself. _(Note: This directory is symlinked from `~/workspace/.cursor`)_
 *   **`.specstory/`**: (Purpose to be defined/documented) Configuration for Specstory tool. _(Note: This directory is symlinked from `~/workspace/.specstory`)_
 

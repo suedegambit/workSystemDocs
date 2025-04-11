@@ -19,6 +19,8 @@ To maintain a clear, version-controlled backlog, track active work, and log comp
 3.  **Activate:** Move the task line from `backlog.md` to `active.md` when starting work.
 4.  **Complete:** Mark the task as done (`- [x]`) and move the line to `done.md`. Optionally add a completion date.
 
+**Convention:** Any task or next action agreed upon during development discussions (e.g., with an AI assistant or team member) *must* be immediately added to `active.md` (if starting now) or `backlog.md` to ensure the tracking system reflects the current plan.
+
 ## Task Format
 
 Use Markdown checklists with optional tags:

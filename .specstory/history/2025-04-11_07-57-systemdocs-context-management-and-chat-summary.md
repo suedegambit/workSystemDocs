@@ -717,7 +717,1133 @@ Read file: Tooling/README.md
 **Findings for `Tooling`:**
 
 *   **Structure:** The `README.md` mentions `scripts/` (which exists) and potentially aliases and package lists. This aligns with the description in `SystemDocs/structure.md`.
-*   **Documentation:** Contains a `README.md` explaining its purpose and listing example contents. It also includes a crucial
+*   **Documentation:** Contains a `README.md` explaining its purpose and listing example contents. It also includes a crucial "Getting started" note about using `toolingLog.md` to capture manual changes for later processing into formal docs.
+*   **Alignment Gaps:**
+    *   **Missing `projectTasks/`:** The standardized task tracking directory is missing. Tasks could include creating new utility scripts, documenting existing ones, or formalizing alias/package management.
+    *   **`toolingLog.md` Status:** The `README.md` relies on `toolingLog.md` (which we *have* been using), but the existence and standard location of this log file should be formally documented, perhaps in `SystemDocs/WorkspaceOps.md` or a `logging.md`.
+    *   **Relationship to `SystemDocs`:** Lacks the explicit "Workspace Context" section.
+*   **Adoptable Practices:**
+    *   **`toolingLog.md`:** The practice of using a simple markdown log (`toolingLog.md`) to capture *manual* system changes before they are formalized is an excellent bootstrapping technique. This approach should be documented in `SystemDocs/WorkspaceOps.md` as a recommended way to bridge the gap between ad-hoc changes and documented automation/configuration.
+
+---
+
+**Summary of Review:**
+
+*   **Common Gap:** The `projectTasks/` directory is missing from all reviewed sub-projects (`GTD`, `InfraCore`, `MCP`, `OutBrain`, `Tooling`).
+*   **Common Gap:** Most sub-project `README.md` files lack the explicit "Workspace Context" section linking back to `SystemDocs` (except `InfraCore`, which has a good example).
+*   **Adoptable Practices Identified:**
+    *   `GTD`: Project-specific `research/` subdirectories.
+    *   `InfraCore`: Explicit "Workspace Context" in README, internal `docs/` directory, project-specific principles.
+    *   `MCP`: Robust `vendor/` management system, detailed logging convention, `scripts/utils/` pattern.
+    *   `Tooling`: Use of `toolingLog.md` for bootstrapping documentation from manual changes.
+
+**Next Steps Recommendation:**
+
+1.  Create `projectTasks/` directories with standard files (`README.md`, `backlog.md`, `active.md`, `done.md`) in each of `GTD`, `InfraCore`, `MCP`, `OutBrain`, and `Tooling`.
+2.  Add tasks to the relevant `SystemDocs/projectTasks/backlog.md` to:
+    *   Document the identified adoptable practices (Vendor Management, Logging Convention, toolingLog.md usage, Workspace Context section, internal docs/, project principles) as workspace standards.
+    *   Standardize the `README.md` format for sub-projects to include the "Workspace Context" section.
+3.  Optionally, start populating the new `projectTasks/backlog.md` files in each sub-project with any obvious initial tasks (e.g., "Implement directory structure" for InfraCore, "Create secrets setup script" for MCP).
+
+Does this plan sound good?
+
+---
+
+_**User**_
+
+when agreeing tasks and next actions, we should, for good practice and visibility and direction—Add these to the  @projectTasks SystemDocs/projectTasks/backlog.md  and//or SystemDocs/projectTasks/active.md as appropriate.
+
+We should add an item now to make sure we add this convention to .cursorrules and indeed the global cursor rules.  As you are often unable to write to .cursorrules  undocumented convention I've been trialling is keeping an identical file called cursorrules.md — This convention should also be added to our project documentation. I find this very useful because it makes it easy to get your input on effective project rules. 
+
+1) Yes— after adding to active.md
+
+2) Perfect
+
+3) Yes, as long as we pooint to parent project documentation that is totaly clear on implementation
+
+Thank you. It feels like control is achievable. 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+Excellent points! Establishing these conventions clearly will definitely improve visibility and control.
+
+**1. Agreeing on Task Tracking Convention:**
+
+You're absolutely right. It's crucial that once we agree on a task or next action related to `SystemDocs` or the overall workspace structure/principles, it gets immediately reflected in the `SystemDocs/projectTasks/` files (`active.md` if we start immediately, `backlog.md` otherwise). This keeps the plan synchronized with our discussion.
+
+**2. `cursorrules.md` Mirroring Convention:**
+
+The idea of using `cursorrules.md` as a writable mirror for `.cursorrules` is a very practical workaround for getting AI input on rule changes. Documenting this convention is essential.
+
+**3. Implementing Previous Plan:**
+
+Acknowledged regarding points 2 (Perfect - likely referring to the adoptable practices) and 3 (Yes, pointing to parent docs - likely referring to creating `projectTasks` in sub-projects).
+
+**Actions:**
+
+1.  I will add tasks to the `SystemDocs` backlog to document these two conventions (Task Tracking and `cursorrules.md` Mirroring).
+2.  I will then activate the plan from our previous review by adding those tasks to `SystemDocs/projectTasks/active.md`.
+
+Let's add the documentation tasks to the backlog first.
+
+
+
+---
+
+```diff
+  - [ ] #prio/medium #type/docs Create `SystemDocs/modules/` directory and `creating_modules.md` document detailing the standard structure and requirements for workspace modules (like InfraCore).
+  - [ ] #prio/low #type/docs Update `SystemDocs/structure.md` or `README.md` to clarify the purpose of the `SystemDocs/modules/` directory (to centrally document standards for creating reusable modules across the workspace).
++ - [ ] #prio/medium #type/process Document convention: Agreed tasks/next actions must be added to `SystemDocs/projectTasks/active.md` or `backlog.md` immediately.
++ - [ ] #prio/medium #type/docs Document the `cursorrules.md` mirroring convention (purpose, usage, location) within `SystemDocs` (e.g., in `WorkspaceOps.md`). 
+```
+
+---
+
+Now, I will move the tasks related to implementing the sub-project review findings (creating `projectTasks/` directories and documenting standards) from the backlog to the active file, as we are starting that now.
+
+
+
+---
+
+
+
+---
+
+```diff
+  
+  ---
++ 
++ - [ ] #prio/high #type/structure Create `projectTasks/` directories in `GTD`, `InfraCore`, `MCP`, `OutBrain`, `Tooling`.
++ - [ ] #prio/high #type/docs Document identified adoptable practices (Vendor Management, Logging Convention, toolingLog.md usage, Workspace Context section, internal docs/, project principles) as workspace standards in `SystemDocs`.
++ - [ ] #prio/high #type/docs Standardize the `README.md` format for sub-projects to include the 'Workspace Context' section (document standard in `SystemDocs`). 
+```
+
+---
+
+Okay, the conventions are captured as tasks in the backlog, and the tasks related to aligning the sub-projects based on our review are now listed in `SystemDocs/projectTasks/active.md`.
+
+We can now proceed with the first active task: Creating the `projectTasks/` directories in the sub-projects. Shall I start with that?
+
+---
+
+_**User**_
+
+Absolutely. 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+Okay, I will now create the `projectTasks/` directory and its standard files (`README.md`, `backlog.md`, `active.md`, `done.md`) in each of the sub-project repositories.
+
+Starting with `/Users/evanacas/workspace/GTD`.
+
+
+
+---
+
+```bash
+mkdir -p ~/workspace/GTD/projectTasks
+```
+
+```
+evanacas@EvanMBP14 ~/workspace$ mkdir -p ~/workspace/GTD/projectTasks
+evanacas@EvanMBP14 ~/workspace$
+```
+
+---
+
+```diff
+- 
++ # GTD Project Task Tracking (`projectTasks/`)
++ 
++ This directory tracks tasks related to the GTD system *itself* (e.g., refining templates, improving workflow documentation), not the individual projects or tasks managed *within* the GTD system.
++ 
++ ## Files
++ 
++ *   **`backlog.md`**: Planned improvements or maintenance for the GTD system.
++ *   **`active.md`**: Tasks currently being worked on related to the GTD system structure or process.
++ *   **`done.md`**: Log of completed system-level GTD tasks.
++ 
++ Refer to `~/workspace/SystemDocs/projectTasks/README.md` for the overall task tracking workflow and conventions. 
+```
+
+---
+
+```diff
+- 
++ # GTD System Backlog
++ 
++ --- 
+```
+
+---
+
+```diff
+- 
++ # Active GTD System Tasks
++ 
++ --- 
+```
+
+---
+
+```diff
+- 
++ # Done GTD System Tasks
++ 
++ --- 
+```
+
+---
+
+Next, `/Users/evanacas/workspace/InfraCore`.
+
+
+
+---
+
+```bash
+mkdir -p ~/workspace/InfraCore/projectTasks
+```
+
+```
+evanacas@EvanMBP14 ~/workspace$ mkdir -p ~/workspace/InfraCore/projectTasks
+evanacas@EvanMBP14 ~/workspace$
+```
+
+---
+
+```diff
+- 
++ # InfraCore Project Task Tracking (`projectTasks/`)
++ 
++ This directory tracks tasks related to the development and maintenance of the `InfraCore` infrastructure management framework.
++ 
++ ## Files
++ 
++ *   **`backlog.md`**: Planned features, modules, bug fixes, or documentation updates for InfraCore.
++ *   **`active.md`**: Tasks currently being worked on.
++ *   **`done.md`**: Log of completed InfraCore tasks.
++ 
++ Refer to `~/workspace/SystemDocs/projectTasks/README.md` for the overall task tracking workflow and conventions. 
+```
+
+---
+
+```diff
+- 
++ # InfraCore Backlog
++ 
++ ---
++ 
++ - [ ] #prio/high #type/structure Implement base directory structure outlined in README.md (bin, modules, config, lib, docs, tests, scripts).
++ - [ ] #prio/medium #type/feature Develop initial `infracore` CLI entry point in `bin/`.
++ - [ ] #prio/medium #type/feature Implement basic logging framework in `lib/logging.sh`. 
+```
+
+---
+
+```diff
+- 
++ # Active InfraCore Tasks
++ 
++ --- 
+```
+
+---
+
+```diff
+- 
++ # Done InfraCore Tasks
++ 
++ --- 
+```
+
+---
+
+Next, `/Users/evanacas/workspace/MCP`.
+
+
+
+---
+
+```bash
+mkdir -p ~/workspace/MCP/projectTasks
+```
+
+```
+evanacas@EvanMBP14 ~/workspace$ mkdir -p ~/workspace/MCP/projectTasks
+evanacas@EvanMBP14 ~/workspace$
+```
+
+---
+
+```diff
+- 
++ # MCP Project Task Tracking (`projectTasks/`)
++ 
++ This directory tracks tasks related to the development, configuration, and maintenance of MCP servers and the supporting infrastructure within this repository.
++ 
++ ## Files
++ 
++ *   **`backlog.md`**: Planned MCP server additions, configuration changes, vendor updates, script enhancements, or documentation work.
++ *   **`active.md`**: Tasks currently being worked on.
++ *   **`done.md`**: Log of completed MCP tasks.
++ 
++ Refer to `~/workspace/SystemDocs/projectTasks/README.md` for the overall task tracking workflow and conventions. 
+```
+
+---
+
+```diff
+- 
++ # MCP Backlog
++ 
++ ---
++ 
++ - [ ] #prio/medium #type/feature Add explicit 'Workspace Context' section to main `README.md` linking to `SystemDocs`.
++ - [ ] #prio/high #type/fix Add `vendor/mac-shell-mcp/` to `.gitignore` (Note: Already done and committed, this is for tracking).
++ - [ ] #prio/low #type/feature Create `scripts/setup_mcp_secrets.sh` script referenced in `docs/setup.md`.
++ - [ ] #prio/medium #type/docs Populate `docs/best-practices.md`.
++ - [ ] #prio/medium #type/docs Create initial client config templates in `config/clients/`. 
+```
+
+---
+
+```diff
+- 
++ # Active MCP Tasks
++ 
++ --- 
+```
+
+---
+
+```diff
+- 
++ # Done MCP Tasks
++ 
++ ---
++ 
++ - [x] Setup base directory structure (docs, vendor, config, scripts) (Done: YYYY-MM-DD)
++ - [x] Implement vendor sync script (`sync-vendors.sh`) (Done: YYYY-MM-DD)
++ - [x] Add mac-shell-mcp to vendor manifest (Done: YYYY-MM-DD)
++ - [x] Install yq dependency (Done: YYYY-MM-DD)
++ - [x] Initial checkout of mac-shell-mcp (Done: YYYY-MM-DD)
++ - [x] Create `cursorrules.md` (Done: YYYY-MM-DD)
++ - [x] Document hybrid server management strategy in `cursorrules.md`, `docs/setup.md`, `docs/server_inventory.md` (Done: YYYY-MM-DD)
++ - [x] Update `sync-vendors.sh` to handle patching and dependencies (Done: YYYY-MM-DD)
++ - [x] Add `.gitignore` entry for vendor directories (Done: YYYY-MM-DD) 
+```
+
+---
+
+Next, `/Users/evanacas/workspace/OutBrain`.
+
+
+
+---
+
+```bash
+mkdir -p ~/workspace/OutBrain/projectTasks
+```
+
+```
+evanacas@EvanMBP14 ~/workspace$ mkdir -p ~/workspace/OutBrain/projectTasks
+evanacas@EvanMBP14 ~/workspace$
+```
+
+---
+
+```diff
+- 
++ # OutBrain Project Task Tracking (`projectTasks/`)
++ 
++ This directory tracks tasks related to the structure, content, and tooling of the `OutBrain` Personal Knowledge Management (PKM) system.
++ 
++ ## Files
++ 
++ *   **`backlog.md`**: Planned PKM enhancements, new content types, structural changes, or integration tasks.
++ *   **`active.md`**: Tasks currently being worked on related to OutBrain.
++ *   **`done.md`**: Log of completed OutBrain tasks.
++ 
++ Refer to `~/workspace/SystemDocs/projectTasks/README.md` for the overall task tracking workflow and conventions. 
+```
+
+---
+
+```diff
+- 
++ # OutBrain Backlog
++ 
++ ---
++ 
++ - [ ] #prio/medium #type/structure Implement detailed structure mentioned in `SystemDocs` (Inbox/, Talks/, ref/).
++ - [ ] #prio/low #type/feature Implement search functionality (e.g., vectorized search).
++ - [ ] #prio/medium #type/docs Add explicit 'Workspace Context' section to main `README.md`. 
+```
+
+---
+
+```diff
+- 
++ # Active OutBrain Tasks
++ 
++ --- 
+```
+
+---
+
+```diff
+- 
++ # Done OutBrain Tasks
++ 
++ --- 
+```
+
+---
+
+Finally, `/Users/evanacas/workspace/Tooling`.
+
+
+
+---
+
+```bash
+mkdir -p ~/workspace/Tooling/projectTasks
+```
+
+```
+evanacas@EvanMBP14 ~/workspace$ mkdir -p ~/workspace/Tooling/projectTasks
+evanacas@EvanMBP14 ~/workspace$
+```
+
+---
+
+```diff
+- 
++ # Tooling Project Task Tracking (`projectTasks/`)
++ 
++ This directory tracks tasks related to the development and maintenance of scripts, aliases, configurations, and other utilities within the `Tooling` repository.
++ 
++ ## Files
++ 
++ *   **`backlog.md`**: Planned new scripts, enhancements to existing tools, documentation updates, or configuration changes.
++ *   **`active.md`**: Tooling tasks currently being worked on.
++ *   **`done.md`**: Log of completed Tooling tasks.
++ 
++ Refer to `~/workspace/SystemDocs/projectTasks/README.md` for the overall task tracking workflow and conventions. 
+```
+
+---
+
+```diff
+- 
++ # Tooling Backlog
++ 
++ ---
++ 
++ - [ ] #prio/medium #type/docs Formally document the purpose and usage of `toolingLog.md` in `SystemDocs`.
++ - [ ] #prio/low #type/feature Formalize alias management (e.g., create `aliases.zsh`).
++ - [ ] #prio/low #type/feature Formalize package list management (e.g., create `packages.brew`, `packages.npm`).
++ - [ ] #prio/medium #type/docs Add explicit 'Workspace Context' section to main `README.md`. 
+```
+
+---
+
+```diff
+- 
++ # Active Tooling Tasks
++ 
++ --- 
+```
+
+---
+
+```diff
+- 
++ # Done Tooling Tasks
++ 
++ ---
++ 
++ - [x] Create `gst-all.sh` (Done: YYYY-MM-DD)
++ - [x] Create `log-git-status.sh` (Done: YYYY-MM-DD)
++ - [x] Create `auto-commit.sh` (Done: YYYY-MM-DD)
++ - [x] Install `ocrmypdf` (Done: YYYY-MM-DD)
++ - [x] Create `process_pdf_letters.sh` (Done: YYYY-MM-DD) 
+```
+
+---
+
+Done! I have created the standard `projectTasks/` directory structure (`README.md`, `backlog.md`, `active.md`, `done.md`) within each of the sub-project repositories: `GTD`, `InfraCore`, `MCP`, `OutBrain`, and `Tooling`.
+
+I've also populated the `README.md` in each with a brief description tailored to the project and added some initial relevant tasks to the respective `backlog.md` files based on our previous review. The `done.md` files in `MCP` and `Tooling` have been populated with tasks we've already completed.
+
+This fulfills the first active task: `[ ] #prio/high #type/structure Create projectTasks/ directories in GTD, InfraCore, MCP, OutBrain, Tooling`.
+
+Shall I mark this task as done in `SystemDocs/projectTasks/active.md` and move it to `done.md`?
+
+---
+
+_**User**_
+
+I think Mark it done and move on to the next one. We can move done tasks across when we bring new ones from the backlog into active. 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+Understood. I will mark the task for creating the `projectTasks/` directories as done and move it from `active.md` to `done.md` in the `SystemDocs` project.
+
+First, removing the task from `active.md`:
+
+
+
+---
+
+```diff
+  ---
+  
+- - [ ] #prio/high #type/structure Create `projectTasks/` directories in `GTD`, `InfraCore`, `MCP`, `OutBrain`, `Tooling`.
+  - [ ] #prio/high #type/docs Document identified adoptable practices (Vendor Management, Logging Convention, toolingLog.md usage, Workspace Context section, internal docs/, project principles) as workspace standards in `SystemDocs`.
+  - [ ] #prio/high #type/docs Standardize the `README.md` format for sub-projects to include the 'Workspace Context' section (document standard in `SystemDocs`). 
+```
+
+---
+
+Now, adding the completed task to `done.md` with a placeholder date.
+
+
+
+---
+
+```diff
+  
+  ---
++ 
++ - [x] #prio/high #type/structure Create `projectTasks/` directories in `GTD`, `InfraCore`, `MCP`, `OutBrain`, `Tooling` (Done: YYYY-MM-DD) 
+```
+
+---
+
+Task updated. The next task in `SystemDocs/projectTasks/active.md` is:
+
+```
+- [ ] #prio/high #type/docs Document identified adoptable practices (Vendor Management, Logging Convention, toolingLog.md usage, Workspace Context section, internal docs/, project principles) as workspace standards in `SystemDocs`.
+```
+
+This involves taking the "Adoptable Practices" identified during our sub-project review and formally documenting them as workspace standards within the appropriate `SystemDocs` files (e.g., `WorkspaceOps.md`, `structure.md`, potentially `modules/creating_modules.md` once created).
+
+Ready to proceed with this documentation task?
+
+---
+
+_**User**_
+
+Yes, please proceed to work through all of the documentation tasks in Active and Backlog. Please  only ask for confirmation to continue when you absolutely need to. 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+Okay, I will proceed with the active documentation tasks and continue through the backlog.
+
+**Active Task 1: Document Identified Adoptable Practices**
+
+1.  **Vendor Management System (`MCP`):** This robust pattern deserves its own section or potentially a dedicated file. Let's add a section to `WorkspaceOps.md` for now.
+2.  **Logging Convention (`MCP`):** This is fundamental. I'll add it to `WorkspaceOps.md`.
+3.  **`toolingLog.md` Usage (`Tooling`):** Important for bootstrapping. I'll add this workflow to `WorkspaceOps.md`.
+4.  **"Workspace Context" Section (`InfraCore`):** This will be part of standardizing READMEs (next task), documented in `structure.md`.
+5.  **Internal `docs/` Directory (`InfraCore`):** Good practice for complex projects. I'll note this as a recommended pattern in `structure.md`.
+6.  **Project-Specific Principles (`InfraCore`):** Good practice. I'll add a note about this possibility in `Principles.md`.
+7.  **Project-specific `research/` (`GTD`):** Useful example. I'll add this as an example pattern within project structures in `structure.md`.
+
+Let's update the files.
+
+**Updating `WorkspaceOps.md` (Vendor Mgmt, Logging, toolingLog):**
+
+
+---
+
+```diff
+  
+  #### Git Status Logging
++ For preserving snapshot state of uncommitted changes:
++ 
++ ```sh
++ gst-all > ~/workspace/logs/git-status-$(date +%F).txt
++ ```
++ 
++ This can be useful for:
++ - Comparing workspace state before/after large changes
++ - Preserving context before shutdown
++ - Future agentic analysis of incomplete work
++ 
++ Last updated: 2025-04-07 14:00 
++ 
++ ## Vendor Management (Standard Pattern)
++ 
++ For managing third-party Git repositories as dependencies (e.g., MCP Servers):
++ 
++ 1.  **Structure:** Use a `vendor/` directory within the relevant project (e.g., `MCP/vendor/`).
++ 2.  **Manifest:** Define dependencies in `vendor/manifest.yml` specifying `name`, `url`, `commit` (pinning), and optionally `patch`.
++ 3.  **Patching:** Store local patches in `vendor/patches/`.
++ 4.  **Sync Script:** Use a `vendor/sync-vendors.sh` script (requires `yq`) to clone/update repos, checkout pinned commits, apply patches, and install dependencies (`npm` or `uv`).
++ 
++ *(Example adapted from `MCP` repository)*
++ 
++ ---
++ 
++ ## Logging Convention (Standard Pattern)
++ 
++ All automation scripts across the workspace should adhere to a standard logging convention:
++ 
++ 1.  **Location:** Output logs to a central, non-committed `~/workspace/logs/PROJECT_NAME/` directory (e.g., `~/workspace/logs/MCP/`, `~/workspace/logs/Tooling/`).
++ 2.  **Filename:** `YYYY-MM-DD-HHMMSS-SCRIPT_ID.log` (e.g., `2024-04-11-103000-sync-vendors.log`).
++ 3.  **Content:** Include script start/end times, configuration used, major steps, errors/warnings.
++ 
++ *(Convention adapted from `MCP` repository)*
++ 
++ ---
++ 
++ ## Bootstrapping Documentation (`toolingLog.md` Pattern)
++ 
++ When making manual system changes (installs, configs) that should eventually be automated or formally documented:
++ 
++ 1.  **Log Manually:** Record the change, commands used, purpose, and timestamp in a simple log file, typically `Tooling/toolingLog.md`.
++ 2.  **Process Later:** Periodically review this log to create formal documentation (in `SystemDocs`) or automation scripts (in `Tooling` or other relevant repos).
++ 
++ This provides a lightweight way to capture changes before they are lost.
++ 
++ *(Practice adapted from `Tooling` repository)*
++ 
++ ### Git Status Logging
+  For preserving snapshot state of uncommitted changes:
+  
+```
+
+---
+
+**Updating `structure.md` (Internal Docs, Research Dirs):**
+
+
+---
+
+```diff
+    - `NextActions.md` *(placeholder – TBD)*  
+    - `Projects/` – One folder or file per active initiative
++     - May optionally contain a `research/` subdirectory for project-specific research (see `Capture.md`).
+  
+  ### `~/workspace/OutBrain/`
+  - Backup and restore process across devices
+  - Encryption/credential workflow (with 1Password CLI)
++ 
++ ### `~/workspace/OutBrain/`
++ - Externalized thinking, speculative writing, prompts, research notes
++ - `WorkspaceOps.md` – Manual and automated operations
++ - `creationChatlogs/` – LLM summary and automation output
++ - `Research/` – Deep dives into tools, methods, LLM integration
++ - `docs/` (Optional): Projects may contain their own internal `docs/` directory for detailed technical documentation (e.g., `InfraCore/docs/`). This complements the high-level documentation here.
+```
+
+---
+
+**Updating `Principles.md` (Project-Specific Principles):**
+
+
+---
+
+```diff
+  - Require checkpoint logs or manual confirmation in early-stage tools
+  - Prefer `--dry-run`, `--verbose`, and `--confirm` flags 
++ 
++ *(Note: Individual projects, like `InfraCore`, may define additional, more specific principles relevant to their domain, which should complement these core workspace principles.)* 
+```
+
+---
+
+**Updating Task Status:** Marking the first active task as done.
+
+
+
+---
+
+```diff
+  ---
+  
+- - [ ] #prio/high #type/docs Document identified adoptable practices (Vendor Management, Logging Convention, toolingLog.md usage, Workspace Context section, internal docs/, project principles) as workspace standards in `SystemDocs`.
++ - [x] #prio/high #type/docs Document identified adoptable practices (Vendor Management, Logging Convention, toolingLog.md usage, Workspace Context section, internal docs/, project principles) as workspace standards in `SystemDocs`.
+  - [ ] #prio/high #type/docs Standardize the `README.md` format for sub-projects to include the 'Workspace Context' section (document standard in `SystemDocs`). 
+```
+
+---
+
+**Active Task 2: Standardize `README.md` Format**
+
+This involves defining the standard sections for sub-project READMEs, including the "Workspace Context" section. A good place to document this standard is `SystemDocs/structure.md`.
+
+**Updating `structure.md` (README Standard):**
+
+
+---
+
+```diff
+  - `logs/` is excluded from Git but optionally synced via other means
+  - `.gitignore` should exclude machine-generated files and ephemeral logs
++ 
++ ## Standard README.md Structure (Sub-Projects)
++ 
++ All sub-project repositories (`GTD`, `Tooling`, `InfraCore`, `MCP`, `OutBrain`, `Agents`, etc.) should include a `README.md` with at least the following sections:
++ 
++ 1.  **`# ProjectName`**: Top-level heading with the repository name (e.g., `# workGTD`, `# InfraCore`).
++ 2.  **`## Purpose / Overview`**: A brief (1-3 sentence) description of the project's role within the workspace.
++ 3.  **`## Structure`**: Outline of the key directories and files within *this* repository and their purpose.
++ 4.  **`## Getting Started / Setup`**: Basic instructions for cloning, installing dependencies, or initial configuration needed to use the project.
++ 5.  **`## Workspace Context`**: **(Required)** A standard section explicitly linking back to the central documentation and principles:
++     ```markdown
++     ## Workspace Context
++ 
++     This project operates as a component of the larger agentic system defined in the parent `~/workspace/SystemDocs` repository. Refer to the parent workspace documentation (`~/workspace/SystemDocs/README.md`, `~/workspace/SystemDocs/Principles.md`, `~/workspace/SystemDocs/workflow.md`) for overall system goals, principles, and coordination protocols. Changes within this project that impact the broader system should be documented and potentially proposed within the parent `~/workspace/SystemDocs` project first.
++     ```
++ 6.  **(Optional) `## Project-Specific Principles`**: If applicable, list principles specific to this project's domain that complement the core workspace principles.
++ 7.  **(Optional) `## Usage Examples`**: Key examples of how to use the project's scripts or tools.
+  
+  ---
+```
+
+---
+
+**Updating Task Status:** Marking the second active task as done.
+
+
+
+---
+
+
+
+---
+
+All tasks from `active.md` are now complete. I will move them to `done.md`.
+
+
+
+---
+
+
+
+---
+
+```diff
+  
+  - [x] #prio/high #type/structure Create `projectTasks/` directories in `GTD`, `InfraCore`, `MCP`, `OutBrain`, `Tooling` (Done: YYYY-MM-DD)
++ - [x] #prio/high #type/docs Document identified adoptable practices (Vendor Management, Logging Convention, toolingLog.md usage, Workspace Context section, internal docs/, project principles) as workspace standards in `SystemDocs` (Done: YYYY-MM-DD).
++ - [x] #prio/high #type/docs Standardize the `README.md` format for sub-projects to include the 'Workspace Context' section (document standard in `SystemDocs`) (Done: YYYY-MM-DD). 
+```
+
+---
+
+Moving on to tasks from `SystemDocs/projectTasks/backlog.md`.
+
+**Backlog Task 1: Update main `README.md` Key Documents list**
+
+This involves reviewing the list in `SystemDocs/README.md` and ensuring it accurately reflects the current state and planned documents.
+
+
+
+---
+
+```diff
+  
+  *   **`README.md`**: (This file) Top-level overview.
+- *   **`principles.md`**: Core design principles guiding system development and automation.
+- *   **`structure.md`** or **`architecture.md`**: (To be created/fleshed out) Detailed explanation of the `~/workspace` layout, repo roles, and data flow. _(Consider adding a diagram)_
+- *   **`workflow.md`**: (To be created/fleshed out) Describes key operational loops (e.g., GTD capture -> process -> act, Log ingestion -> summary -> insight).
+- *   **`WorkspaceOps.md`**: (To be created/fleshed out) Details standard commands, scripts (`gst-all`), and maintenance procedures for the workspace.
+- *   **`auth.md`** or **`setup.md`**: (To be created/fleshed out) Instructions for setting up SSH keys, Git configurations, and potentially bootstrapping the environment on a new machine.
++ *   **`Principles.md`**: Core design principles guiding system development and automation.
++ *   **`structure.md`**: Detailed explanation of the `~/workspace` layout, repo roles, data flow, and standard conventions (like README structure).
++ *   **`workflow.md`**: Describes key operational loops (e.g., GTD capture -> process -> act, Log ingestion -> summary -> insight).
++ *   **`WorkspaceOps.md`**: Details standard commands, scripts (`gst-all`), operational patterns (Vendor Mgmt, Logging, `toolingLog`), and maintenance procedures.
++ *   **`setup.md`** (Planned Name): Instructions for setting up SSH keys, Git configurations, and bootstrapping the environment.
+  *   **`Capture.md`**: Details on how to use the `GTD/inbox.md` and conventions for capturing thoughts/tasks.
++ *   **`modules/creating_modules.md`** (Planned): Standards for creating reusable workspace modules.
+  *   **`projectTasks/`**: Task backlog, active work, and completion log specifically for `SystemDocs` development.
+- *   **`Research/`**: Deep dives and evaluations of tools, technologies, and approaches relevant to the system (e.g., Cursor, Agent Stacks).
+- *   **`creationChatlogs/`**: Contains the structured summaries (`summary.*.md`) and automatable action lists (`automate.*.md`) generated during the system's design phase via ChatGPT. These serve as the initial bootstrapping instructions.
++ *   **`Research/`**: Deep dives and evaluations of tools, technologies, and approaches relevant to the system.
++ *   **`creationChatlogs/`**: Historical structured summaries and automatable action lists.
++ *   **`commit-automation.md`**: Guidelines and suggestions for automating Git commits.
++ *   **`system-rules.md`**: Core operational and safety rules for the workspace.
++ *   **`auth.md`** or **`setup.md`**: (To be created/fleshed out) Instructions for setting up SSH keys, Git configurations, and potentially bootstrapping the environment on a new machine.
+  *   **`.cursor/`**: Configuration rules specific to using the Cursor editor within this `SystemDocs` project itself. _(Note: This directory is symlinked from `~/workspace/.cursor`)_
+  *   **`.specstory/`**: (Purpose to be defined/documented) Configuration for Specstory tool. _(Note: This directory is symlinked from `~/workspace/.specstory`)_
+```
+
+---
+
+Moving this task from backlog to done.
+
+
+
+---
+
+```diff
+  ---
+  
+- - [ ] #prio/medium #type/docs Update main `README.md` Key Documents list to reflect created files (`structure.md`, `workflow.md`, `WorkspaceOps.md`) and decide on `auth.md` vs `setup.md`.
+  - [ ] #prio/low #type/docs Flesh out planned sections in `structure.md` (Agent Flow, Processing Patterns, sync strategy, etc.).
+  - [ ] #prio/low #type/feature Implement suggestions from `commit-automation.md` (hooks, scripts) if desired.
+```
+
+---
+
+```diff
+  - [x] #prio/high #type/docs Document identified adoptable practices (Vendor Management, Logging Convention, toolingLog.md usage, Workspace Context section, internal docs/, project principles) as workspace standards in `SystemDocs` (Done: YYYY-MM-DD).
+  - [x] #prio/high #type/docs Standardize the `README.md` format for sub-projects to include the 'Workspace Context' section (document standard in `SystemDocs`) (Done: YYYY-MM-DD).
++ - [x] #prio/medium #type/docs Update main `README.md` Key Documents list (Done: YYYY-MM-DD). 
+```
+
+---
+
+I will continue processing tasks from the backlog.
+
+---
+
+_**User**_
+
+continue
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+Okay, continuing with the tasks from the `SystemDocs/projectTasks/backlog.md`.
+
+**Backlog Task 8: Document convention: Agreed tasks/next actions must be added to `SystemDocs/projectTasks/active.md` or `backlog.md` immediately.**
+
+I'll add this rule explicitly to the `Workflow` section of `SystemDocs/projectTasks/README.md`.
+
+
+
+---
+
+```diff
+  3.  **Activate:** Move the task line from `backlog.md` to `active.md` when starting work.
+  4.  **Complete:** Mark the task as done (`- [x]`) and move the line to `done.md`. Optionally add a completion date.
++ 
++ **Convention:** Any task or next action agreed upon during development discussions (e.g., with an AI assistant or team member) *must* be immediately added to `active.md` (if starting now) or `backlog.md` to ensure the tracking system reflects the current plan.
+  
+  ## Task Format
+```
+
+---
+
+Moving this task from backlog to done.
+
+
+
+---
+
+```diff
+  - [ ] #prio/medium #type/docs Create `SystemDocs/modules/` directory and `creating_modules.md` document detailing the standard structure and requirements for workspace modules (like InfraCore).
+  - [ ] #prio/low #type/docs Update `SystemDocs/structure.md` or `README.md` to clarify the purpose of the `SystemDocs/modules/` directory (to centrally document standards for creating reusable modules across the workspace).
+- - [ ] #prio/medium #type/process Document convention: Agreed tasks/next actions must be added to `SystemDocs/projectTasks/active.md` or `backlog.md` immediately.
+  - [ ] #prio/medium #type/docs Document the `cursorrules.md` mirroring convention (purpose, usage, location) within `SystemDocs` (e.g., in `WorkspaceOps.md`). 
+- - [ ] 
+```
+
+---
+
+```diff
+  - [x] #prio/high #type/docs Standardize the `README.md` format for sub-projects to include the 'Workspace Context' section (document standard in `SystemDocs`) (Done: YYYY-MM-DD).
+  - [x] #prio/medium #type/docs Update main `README.md` Key Documents list (Done: YYYY-MM-DD).
++ - [x] #prio/medium #type/process Document convention: Agreed tasks/next actions must be added to `SystemDocs/projectTasks/active.md` or `backlog.md` immediately (Done: YYYY-MM-DD). 
+```
+
+---
+
+**Backlog Task 9: Document the `cursorrules.md` mirroring convention**
+
+I will add a description of this convention to `WorkspaceOps.md`.
+
+
+
+---
+
+```diff
+  
+  Last updated: 2025-04-07 14:00 
++ 
++ ## `cursorrules.md` Mirroring Convention
++ 
++ To facilitate AI-assisted editing and review of Cursor project rules (`.cursorrules`), which AI assistants often cannot directly modify:
++ 
++ 1.  **Create Mirror:** Maintain a standard markdown file named `cursorrules.md` in the project root, mirroring the content of the actual `.cursorrules` file.
++ 2.  **AI Interaction:** Use the `cursorrules.md` file when discussing or requesting changes to project rules with an AI assistant.
++ 3.  **Manual Sync:** After agreeing on changes with the AI, **manually copy** the updated content from `cursorrules.md` into the actual `.cursorrules` file used by the Cursor editor.
++ 
++ This provides a practical workflow for leveraging AI suggestions while respecting tool limitations.
+```
+
+---
+
+Moving this task from backlog to done.
+
+
+
+---
+
+```diff
+  - [ ] #prio/medium #type/docs Create `SystemDocs/modules/` directory and `creating_modules.md` document detailing the standard structure and requirements for workspace modules (like InfraCore).
+  - [ ] #prio/low #type/docs Update `SystemDocs/structure.md` or `README.md` to clarify the purpose of the `SystemDocs/modules/` directory (to centrally document standards for creating reusable modules across the workspace).
+- - [ ] #prio/medium #type/docs Document the `cursorrules.md` mirroring convention (purpose, usage, location) within `SystemDocs` (e.g., in `WorkspaceOps.md`). 
+- - [ ] Give the User a prompt that he can give to every sub project to instruct them to pause and contextualise and implement changes in documentation and standards that we've implemented for them. 
++ - [ ] Give the User a prompt that he can give to every sub project to instruct them to pause and contextualise and implement changes in documentation and standards that we've implemented for them. r
+```
+
+---
+
+```diff
+  - [x] #prio/medium #type/docs Update main `README.md` Key Documents list (Done: YYYY-MM-DD).
+  - [x] #prio/medium #type/process Document convention: Agreed tasks/next actions must be added to `SystemDocs/projectTasks/active.md` or `backlog.md` immediately (Done: YYYY-MM-DD).
++ - [x] #prio/medium #type/docs Document the `cursorrules.md` mirroring convention (Done: YYYY-MM-DD). 
+```
+
+---
+
+**Backlog Task 2: Flesh out planned sections in `structure.md` (Agent Flow, Processing Patterns, sync strategy, etc.).**
+
+This is a larger task involving defining core agentic behaviors and system interactions. I'll start by adding placeholder sections and brief descriptions to `structure.md`.
+
+
+
+---
+
+```diff
+  - How agents report actions and decisions
+  - Safety constraints (rate limiting, human-in-the-loop checkpoints)
++ 
++ *(Initial thoughts: Agents should primarily read context, propose changes via standard mechanisms like patches or adding tasks to backlogs, and log actions clearly using the standard logging convention. Direct file modification or commits should require explicit approval initially.)*
+  
+  ## Processing Patterns (Planned)
+  - Sweep `GTD/inbox.md` and `OutBrain/Inbox/`
+  - Categorize into: GTD Action, GTD Project, OutBrain Ref, Archive
++ *(Process: Likely a manual or semi-automated review process initially, potentially aided by an agent suggesting categorization based on tags/content.)*
+  
+  ### Log Snapshotting
+- - Run `ws-head` before shutdown or session exit
++ - Run `ws-head` or `gst-all` before shutdown or session exit
+  - Commit any meaningful state to Git
+  - Write log summary if changes occurred
++ *(Process: Could be added to shell exit hooks or run manually. Essential for adhering to "No Idle Exit" principle.)*
+  
+  ### LLM Conversation Lifecycle
+  - Capture interaction → `creationChatlogs/`
+  - Generate turn summary + automatable actions
+  - Actions routed to relevant repo for implementation or review
++ *(Process: Primarily handled by interaction tools like Cursor/SpecStory, output stored centrally in SystemDocs.)*
+  
+  ## To Be Documented
+  
+  These topics are required for full observability, replication, and scaling of the system:
+  
+- - Agent commit policy and context boundaries
+- - Prompt engineering reuse strategies
+- - Sync strategy for non-Git data (logs, checkpoints, GPT outputs)
+- - OutBrain → GTD reference flow (how ideas become actions)
+- - OutBrain citation/metadata standards (e.g., quote origins)
+- - Backup and restore process across devices
+- - Encryption/credential workflow (with 1Password CLI)
++ - Agent commit policy and context boundaries *(Relates to Agent Flow)*
++ - Prompt engineering reuse strategies *(Likely managed within OutBrain)*
++ - Sync strategy for non-Git data (logs, checkpoints, GPT outputs) *(Crucial for multi-device use and backups; needs dedicated thought - Unraid, Syncthing, cloud?)*
++ - OutBrain → GTD reference flow (how ideas become actions) *(Part of Inbox Triage and knowledge management)*
++ - OutBrain citation/metadata standards (e.g., quote origins) *(Needs definition for PKM consistency)*
++ - Backup and restore process across devices *(Essential system-level operation)*
++ - Encryption/credential workflow (with 1Password CLI) *(Security critical; possibly documented in `setup.md`)*
+  
+  ### `~/workspace/OutBrain/`
+  - Externalized thinking, speculative writing, prompts, research notes
+- - `WorkspaceOps.md` – Manual and automated operations
+- - `creationChatlogs/` – LLM summary and automation output
+- - `Research/` – Deep dives into tools, methods, LLM integration
+- - `docs/` (Optional): Projects may contain their own internal `docs/` directory for detailed technical documentation (e.g., `InfraCore/docs/`). This complements the high-level documentation here.
++ - `
+```
+
+---
+
+This task requires significant design thinking, so I've only added initial placeholder comments and links between related "To Be Documented" items. I'll keep this task in the backlog for now, as fully fleshing it out is beyond a single step.
+
+
+
+---
+
+```diff
+  ---
+  
+- - [ ] #prio/low #type/docs Flesh out planned sections in `structure.md` (Agent Flow, Processing Patterns, sync strategy, etc.).
++ - [ ] #prio/low #type/docs Flesh out planned sections in `structure.md` (Agent Flow, Processing Patterns, sync strategy, etc.) *(Started - added initial thoughts)*.
+  - [ ] #prio/low #type/feature Implement suggestions from `commit-automation.md` (hooks, scripts) if desired.
+  - [ ] #prio/low #type/docs Add the visual architecture diagram to `structure.md`.
+```
+
+---
+
+**Backlog Task 3: Implement suggestions from `commit-automation.md` (hooks, scripts) if desired.**
+
+This requires a decision on whether to proceed. Given the previous shell issues with running scripts and the need for careful setup of hooks, I recommend **deferring** this implementation for now. We can focus on the core documentation and structure first. I will leave this task in the backlog.
+
+**Backlog Task 4: Add the visual architecture diagram to `structure.md`.**
+
+This requires creating a visual diagram (e.g., using Mermaid, Excalidraw, or another tool) and embedding it. This is best done manually or with specific diagramming tools. I will leave this task in the backlog.
+
+**Backlog Task 5: Ensure `ws-head` alias from `system-rules.md` is implemented and functional.**
+
+The alias defined is:
+`alias ws-head='find ~/workspace -type f \( -name "*.md" -o -name "*.yml" -o -name "*.sh" \) | while read file; do echo "===== $file ====="; head -n 10 "$file"; echo; done'`
+
+This alias needs to be added to your shell profile (e.g., `~/.zshrc`). Since I cannot directly modify your shell profile, I will add a note to the task in the backlog indicating it requires manual setup.
+
+
+
+---
+
+```diff
+  - [ ] #prio/low #type/feature Implement suggestions from `commit-automation.md` (hooks, scripts) if desired.
+  - [ ] #prio/low #type/docs Add the visual architecture diagram to `structure.md`.
+- - [ ] #prio/medium #type/tooling Ensure `ws-head` alias from `system-rules.md` is implemented and functional (likely in `Tooling` repo or shell profile).
++ - [ ] #prio/medium #type/tooling Ensure `ws-head` alias from `system-rules.md` is implemented and functional *(Requires manual addition to shell profile, e.g., ~/.zshrc)*.
+  - [ ] #prio/low #type/design #scope/agentic Consider and design how we might describe capture and measure criteria for the project tasks system to potentially allow at times unsupervised agentic delivery of these tasks.
+  - [ ] #prio/medium #type/docs Create `SystemDocs/modules/` directory and `creating_modules.md` document detailing the standard structure and requirements for workspace modules (like InfraCore).
+```
+
+---
+
+**Backlog Task 6: Consider and design capture/measure criteria for agentic tasks.**
+
+This is a design task, remaining in the backlog.
+
+**Backlog Task 7: Create `SystemDocs/modules/` directory and `creating_modules.md` document.**
+
+I will create the directory and a basic placeholder file.
+
+
+
+---
+
+```bash
+mkdir -p ~/workspace/SystemDocs/modules
+```
+
+```
+evanacas@EvanMBP14 ~/workspace$ mkdir -p ~/workspace/SystemDocs/modules
+evanacas@EvanMBP14 ~/workspace$
+```
+
+---
+
+```diff
+- 
++ # Creating Workspace Modules
++ 
++ This document defines the standards and best practices for creating reusable, functional modules within the `~/workspace/` system.
++ 
++ ## Purpose of Modules
++ 
++ Modules encapsulate specific functionality (e.g., infrastructure management via `InfraCore`, PKM via `OutBrain`, system utilities via `Tooling`) in a consistent and maintainable way. Adhering to these standards promotes interoperability, discoverability, and ease of automation.
++ 
++ ## Core Requirements
++ 
++ *(To be defined - This section will detail standard directory structures, interface conventions, configuration, logging, testing, and documentation requirements.)*
++ 
++ ## Standard Structure (Example)
++ 
++ ```
++ ModuleName/
++ ├── README.md          # Module overview, setup, usage
++ ├── projectTasks/      # Standard task tracking
++ ├── bin/               # Executable entry points / CLI
++ ├── lib/               # Core logic, shared functions
++ ├── config/            # Default configuration, templates
++ ├── docs/              # Detailed module-specific documentation
++ ├── tests/             # Unit/Integration tests
++ └── scripts/           # Supporting scripts (setup, maintenance)
++ ```
++ 
++ ## Key Considerations
++ 
++ *   **Dependencies:** Minimize external dependencies where possible. Document necessary installations clearly.
++ *   **Configuration:** Use clear, version-controlled configuration files.
++ *   **Logging:** Adhere to the standard workspace logging convention defined in `SystemDocs/WorkspaceOps.md`.
++ *   **Error Handling:** Implement robust error checking and provide clear feedback.
++ *   **Idempotency:** Design scripts/operations to be safely re-runnable where applicable. 
+```
+
+---
+
+Marking this task as done.
+
+
+
+---
+
+_**User**_
+
+"This task requires significant design thinking, so I've only added initial placeholder comments and links between related "To Be Documented" items. I'll keep this task in the backlog for now, as fully fleshing it out is beyond a single step."– This was a good choice because we should also not force design or architectural thinking before we've got enough experience to educate it. 
+
+---
+
+_**Assistant**_
+
+Cancelled
+
+---
+
+
+
+---
+
+
+
+---
+
+Okay, I understand and agree. It's wise to let the system evolve and gain practical experience before locking in complex designs like agent flows or detailed processing patterns. Deferring those detailed sections in `structure.md` while focusing on establishing the foundational documentation and conventions is the right approach.
+
+I will now mark the task for creating the placeholder `SystemDocs/modules/creating_modules.md` as completed.
+
+
+
+---
+
+Cancelled
+
+---
+
+
 
 ---
 

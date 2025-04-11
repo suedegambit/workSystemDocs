@@ -10,3 +10,5 @@ All early-stage automation must include deliberate pacing (rate limits, buffer w
 - Avoid opaque background tasks
 - Require checkpoint logs or manual confirmation in early-stage tools
 - Prefer `--dry-run`, `--verbose`, and `--confirm` flags 
+
+*(Note: Individual projects, like `InfraCore`, may define additional, more specific principles relevant to their domain, which should complement these core workspace principles.)* 
