@@ -14,4 +14,15 @@
   - Clean up and standardize backlog entries
   - Evaluate moving general-purpose scripts to Tooling repo
   - Standardize error handling approaches
-  - Ensure consistent references to SystemDocs 
+  - Ensure consistent references to SystemDocs
+- [ ] #prio/medium #type/research Develop workspace terminology glossary:
+  - Use research parameters from `ResearchParametersforWorkspaceTerminologyGlossary-fromTooling.md` 
+  - Take light-touch approach for first round (focus on most common/critical terms)
+  - Allow system to "bed in" for 1-2 months before comprehensive implementation
+  - Balance standardization with project-specific terminology needs
+- [ ] #prio/high #type/design Establish cross-project communication framework:
+  - Define standardized message format for project-to-project requests
+  - Create registry of inter-project dependencies and interfaces
+  - Establish guidelines for when to escalate to SystemDocs level
+  - Implement project boundary respecting principles (each retains agency)
+  - Consider standard location for cross-project message tracking 
