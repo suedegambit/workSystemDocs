@@ -21,6 +21,7 @@ Its goals are to:
 *   **`WorkspaceOps.md`**: (To be created/fleshed out) Details standard commands, scripts (`gst-all`), and maintenance procedures for the workspace.
 *   **`auth.md`** or **`setup.md`**: (To be created/fleshed out) Instructions for setting up SSH keys, Git configurations, and potentially bootstrapping the environment on a new machine.
 *   **`Capture.md`**: Details on how to use the `GTD/inbox.md` and conventions for capturing thoughts/tasks.
+*   **`projectTasks/`**: Task backlog, active work, and completion log specifically for `SystemDocs` development.
 *   **`Research/`**: Deep dives and evaluations of tools, technologies, and approaches relevant to the system (e.g., Cursor, Agent Stacks).
 *   **`creationChatlogs/`**: Contains the structured summaries (`summary.*.md`) and automatable action lists (`automate.*.md`) generated during the system's design phase via ChatGPT. These serve as the initial bootstrapping instructions.
 *   **`.cursor/`**: Configuration rules specific to using the Cursor editor within this `SystemDocs` project itself. _(Note: This directory is symlinked from `~/workspace/.cursor`)_
