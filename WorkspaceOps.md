@@ -48,6 +48,21 @@ This can be useful for:
 
 Last updated: 2025-04-07 14:00 
 
+## Standard Git Commit Workflow
+
+To maintain clarity and leverage AI assistance effectively:
+
+1.  **Scope:** Commits should represent a single, logical unit of work (e.g., implementing a feature, fixing a specific bug, completing a documentation section).
+2.  **Frequency:** Aim for relatively small, focused commits after each meaningful task completion, rather than large commits encompassing many unrelated changes.
+3.  **AI Assistance:** When working with an AI assistant (like Cursor):
+    *   After completing the logical unit of work, instruct the AI to propose the necessary `git add` and `git commit` commands.
+    *   The AI should formulate a descriptive commit message following conventional commit standards (`type(scope): description`).
+4.  **User Review:** **Always review** the files staged by `git add` and the commit message proposed by the AI before approving the command execution.
+
+This workflow promotes a clean Git history and ensures human oversight of AI-suggested changes.
+
+---
+
 ## Vendor Management (Standard Pattern)
 
 For managing third-party Git repositories as dependencies (e.g., MCP Servers):

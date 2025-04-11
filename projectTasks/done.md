@@ -12,4 +12,7 @@
 - [x] #prio/medium #type/docs Document the `cursorrules.md` mirroring convention (Done: YYYY-MM-DD).
 - [x] #prio/medium #type/docs Create `SystemDocs/modules/` directory and placeholder `creating_modules.md` (Done: YYYY-MM-DD).
 - [x] #prio/low #type/docs Clarify purpose of `SystemDocs/modules/` directory in `structure.md` (Done: YYYY-MM-DD).
-- [x] #prio/low #type/prompt Create prompt template for sub-project alignment (`subproject_alignment_prompt.md`) (Done: YYYY-MM-DD). 
+- [x] #prio/low #type/prompt Create prompt template for sub-project alignment (`subproject_alignment_prompt.md`) (Done: YYYY-MM-DD).
+- [x] #prio/medium #type/docs Document standard Git commit workflow in `WorkspaceOps.md` (Done: YYYY-MM-DD).
+- [x] #prio/low #type/template Created standard `.cursorrules` template (`templates/standard.cursorrules.template.md`) incorporating commit workflow, logging, and mirroring rules (Done: YYYY-MM-DD).
+- [x] #prio/medium #type/implement Created `cursorrules.md` in SystemDocs root mirroring `.cursor/rules/systemdocs-project-rules.mdc` with added standard conventions (Done: YYYY-MM-DD). 
