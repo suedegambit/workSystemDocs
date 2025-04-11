@@ -3,7 +3,7 @@
 **Goal:** Verify MCP's alignment with updated workspace standards, and use its advanced patterns to refine those standards.
 
 **Context:**
-The MCP repository already implements many of the patterns now standardized in `SystemDocs`. It serves as a reference implementation for practices like vendor management and logging conventions. The goal is to:
+The MCP repository already implements many of the patterns now standardized in `SystemDocs`. It serves as a reference implementation for practices like vendor management, logging conventions, and the **newly documented MCP patterns in `WorkspaceOps.md`**. The goal is to:
 1. Ensure full alignment with all current standards
 2. Extract any additional patterns from MCP that could be worth standardizing across the workspace
 

@@ -13,7 +13,7 @@ This project operates as a component within a larger agentic workspace system, c
     *   `Principles.md` (Core system principles)
     *   `structure.md` (Workspace layout, standard README structure)
     *   `workflow.md` (Core workflows)
-    *   `WorkspaceOps.md` (Standard operations, **logging convention**, vendor mgmt, **commit workflow**, etc.)
+    *   `WorkspaceOps.md` (Standard operations, **logging convention**, vendor mgmt, **commit workflow**, **MCP patterns**)
     *   `projectTasks/README.md` (Standard task tracking system)
     *   `system-rules.md` (Core rules including overwrite protection, `ws-head`)
     *   **(If created)** Standard `.cursorrules` template or documentation section in `SystemDocs`.
@@ -29,6 +29,12 @@ This project operates as a component within a larger agentic workspace system, c
     *   Logging: Adherence to standard logging convention documented in `WorkspaceOps.md`.
     *   Vendor Management: Adherence to standard pattern from `WorkspaceOps.md`.
     *   Commit History (brief check): Does recent history suggest adherence to small, focused commits?
+    *   **MCP Patterns (if applicable):** If the project deals with external services or configuration:
+        - Does it use a clear dependency classification system (standard third-party, custom-developed, patched vendor)?
+        - If managing system config files, does it use the symlinking pattern to maintain version control?
+        - Is there a "Known Behaviors" or similar section documenting quirks and workarounds?
+        - For services with startup time, are proper initialization delay patterns implemented?
+        - Is there a clear separation between client code, server management, and configuration?
     *   Other Conventions: Any other deviations.
 4.  **Identify Gaps:** List specific discrepancies found.
 5.  **Propose Actions:** Create a list of tasks (as markdown checklist items `- [ ] #tag... Description`) suitable for adding to *this project's* `projectTasks/backlog.md` to address the identified gaps. Examples:

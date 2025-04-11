@@ -17,4 +17,6 @@
 - [x] #prio/low #type/template Created standard `.cursorrules` template (`templates/standard.cursorrules.template.md`) incorporating commit workflow, logging, and mirroring rules (Done: YYYY-MM-DD).
 - [x] #prio/medium #type/implement Created `cursorrules.md` in SystemDocs root mirroring `.cursor/rules/systemdocs-project-rules.mdc` with added standard conventions (Done: YYYY-MM-DD).
 - [x] #prio/medium #type/enhance Added detailed git commit rules to `cursorrules.md` for SystemDocs (Done: YYYY-MM-DD).
-- [x] #prio/medium #type/enhance Added "Regular Task Checking" instruction to the cursor rules template (Done: YYYY-MM-DD). 
+- [x] #prio/medium #type/enhance Added "Regular Task Checking" instruction to the cursor rules template (Done: YYYY-MM-DD).
+- [x] #prio/high #type/docs Documented MCP patterns in `WorkspaceOps.md` including dependency classification, config symlinking, and other patterns (Done: YYYY-MM-DD).
+- [x] #prio/medium #type/update Updated alignment prompts to recognize and check for MCP patterns (Done: YYYY-MM-DD). 

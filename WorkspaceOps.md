@@ -122,3 +122,91 @@ To facilitate AI-assisted editing and review of Cursor project rules (`.cursorru
 3.  **Manual Sync:** After agreeing on changes with the AI, **manually copy** the updated content from `cursorrules.md` into the actual `.cursorrules` file used by the Cursor editor.
 
 This provides a practical workflow for leveraging AI suggestions while respecting tool limitations.
+
+---
+
+## MCP Patterns (Reference Implementations)
+
+The following patterns have been implemented successfully in the MCP repository and are recommended for adoption across the workspace where applicable:
+
+### Server/Dependency Classification System
+
+A three-tiered approach to managing external servers or dependencies:
+
+1. **Standard Third-Party Services**: Installed and run on-demand using package runners (`npx`, `uvx`, `bunx`).
+   - *Example:* `npx @anthropic/claude-api@latest <args>`
+   - *Advantage:* Always uses latest version, minimal management overhead.
+
+2. **Custom-Developed Components**: Source code managed directly within the repository with local dependency management.
+   - *Example:* Custom-built script with its own package.json.
+   - *Advantage:* Full control over code and updates.
+
+3. **Patched Vendor Components**: Managed via the vendor system (manifest and sync script) with local patches.
+   - *Example:* Third-party code requiring local modifications.
+   - *Advantage:* Pulls from upstream but allows local customization.
+
+This pattern provides clear guidelines for when to use different approaches to external code.
+
+### Configuration Symlinking Pattern
+
+For managing configuration files that must exist in specific system locations:
+
+1. **Store Canonical Versions:** Keep versioned configuration files in the repository (e.g., `config/clients/snippets/`).
+2. **Create Symlinks:** Symlink from required system locations to the repo versions.
+3. **Document Locations:** Maintain a clear registry of which system files are symlinked.
+
+*Example:* 
+```bash
+# Link from system location to repo
+ln -sf ~/workspace/MCP/config/clients/snippets/client_config.json ~/Library/Application\ Support/SomeApp/config.json
+```
+
+This pattern enables version control of configs without duplicating or moving files from required locations.
+
+### Known Behaviors Documentation
+
+A structured approach to documenting quirks and workarounds:
+
+1. **Dedicated Section:** Include a "Known Behaviors" or "Known Issues" section in documentation.
+2. **Problem-Solution Format:** Format each entry with:
+   - Clear description of the behavior/issue
+   - Root cause (if known)
+   - Workaround or handling strategy
+   - Status (active issue, resolved, etc.)
+
+This approach maintains institutional knowledge about external dependencies that may have inconsistent behavior.
+
+### Initialization Delay Pattern
+
+For handling components with asynchronous initialization:
+
+1. **Structured Waiting:** Implement a retry mechanism with exponential backoff.
+2. **Clear Timeout:** Set a maximum wait time to avoid indefinite hanging.
+3. **Status Checking:** Build in health-check or readiness endpoints.
+
+*Example:*
+```bash
+# Basic retry with exponential backoff
+attempt=1
+max_attempts=5
+base_wait=2
+
+until service_ready_check || [ $attempt -gt $max_attempts ]; do
+    wait_time=$((base_wait ** attempt))
+    echo "Service not ready, waiting ${wait_time}s (attempt $attempt/$max_attempts)..."
+    sleep $wait_time
+    ((attempt++))
+done
+```
+
+This pattern is useful for any service that requires initialization time before accepting requests.
+
+### Client-Server-Config Separation
+
+A clear separation of concerns in architecture:
+
+1. **Client Code:** Tools for interacting with services (`scripts/utils/`).
+2. **Server Management:** Code for starting, monitoring, and configuring servers (`scripts/servers/`).
+3. **Configuration:** Separated into templates and active configs (`config/`).
+
+This separation simplifies maintenance and makes it clear which components serve which purpose.
